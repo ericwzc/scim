@@ -1,0 +1,4 @@
+gxd:
+  scim:
+    user:
+      baseUrl: http://localhost:8080/scim/v2/Users
