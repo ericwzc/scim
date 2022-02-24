@@ -2,3 +2,11 @@ gxd:
   scim:
     user:
       baseUrl: http://localhost:8080/scim/v2/Users
+  apiKey: jk*d23!09@334^
+
+spring:
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          public-key-location: classpath:my-key.pub

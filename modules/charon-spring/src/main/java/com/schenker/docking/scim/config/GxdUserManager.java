@@ -17,14 +17,23 @@ import org.wso2.charon3.core.objects.Group;
 import org.wso2.charon3.core.objects.User;
 import org.wso2.charon3.core.utils.codeutils.SearchRequest;
 
+import okhttp3.OkHttpClient;
+
 class GxdUserManager implements UserManager {
 
 	private static Logger logger = LoggerFactory.getLogger(UserManager.class);
-
+	
+	private OkHttpClient client;
+	
+	public GxdUserManager(OkHttpClient client) {
+		this.client = client;
+	}
+	
 	@Override
 	public User createUser(User user, Map<String, Boolean> requiredAttributes)
 			throws CharonException, ConflictException, BadRequestException, ForbiddenException {
 		logger.info("user created successfully:{}", user);
+		//TODO transform user & call backend user sevice with okhttpClient
 		return user;
 	}
 
@@ -43,6 +52,7 @@ class GxdUserManager implements UserManager {
 	public void deleteUser(String userId)
 			throws NotFoundException, CharonException, NotImplementedException, BadRequestException {
 		logger.info("user with id {} deleted successfully", userId);
+		//TODO call backend user sevice with okhttpClient
 	}
 
 	@Override
@@ -55,6 +65,7 @@ class GxdUserManager implements UserManager {
 	public User updateUser(User updatedUser, Map<String, Boolean> requiredAttributes)
 			throws NotImplementedException, CharonException, BadRequestException, NotFoundException {
 		logger.info("updated user successfully:{}", updatedUser);
+		//TODO transform user & call backend user sevice with okhttpClient
 		return updatedUser;
 	}
 

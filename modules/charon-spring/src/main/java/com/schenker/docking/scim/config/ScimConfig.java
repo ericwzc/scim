@@ -9,6 +9,8 @@ import org.springframework.context.annotation.Configuration;
 import org.wso2.charon3.core.extensions.UserManager;
 import org.wso2.charon3.core.protocol.endpoints.AbstractResourceManager;
 
+import okhttp3.OkHttpClient;
+
 @Configuration
 public class ScimConfig {
 	
@@ -16,8 +18,8 @@ public class ScimConfig {
 	String userBaseLocation;
 
 	@Bean
-	public UserManager userManager() {
-		return new GxdUserManager();
+	public UserManager userManager(OkHttpClient okHttpClient) {
+		return new GxdUserManager(okHttpClient);
 	}
 
 	@Bean
